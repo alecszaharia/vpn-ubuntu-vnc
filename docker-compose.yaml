@@ -10,13 +10,14 @@ services:
     build:
       context: ./ubuntu
     network_mode: container:l2tp-vpn-client
-    ports:
-      - 5900:5900
+
   l2tp-vpn-client:
     image: r0hm1/l2tp-vpn-client:latest
     container_name: l2tp-vpn-client
     hostname: l2tp-vpn-client
     privileged: true
+    ports:
+      - 5900:5900
     networks:
       - vpn-network # The bridge network we created earlier
     cap_add:
