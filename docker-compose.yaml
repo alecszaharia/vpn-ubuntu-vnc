@@ -5,6 +5,8 @@ networks:
 
 services:
   ubuntu:
+    depends_on:
+      - l2tp-vpn-client
     cap_add:
       - NET_ADMIN
     build:
